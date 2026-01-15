@@ -1,0 +1,25 @@
+name: Validate Project JSON
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON syntax
+        run: jq empty data/projects.json
+
+      - name: Validate required fields
+        run: |
+          jq -e '
+            all(.[]; 
+              has("id") and
+              has("title") and
+              has("summary") and
+              has("services") and
+              ( .services | type == "array" )
+            )
+          ' data/projects.json

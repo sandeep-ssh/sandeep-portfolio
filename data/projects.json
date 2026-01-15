@@ -1,0 +1,12 @@
+
+[
+  {
+    "id": "eks-platform",
+    "title": "Production-Grade AWS EKS Platform",
+    "problem": "Manual deployments and inconsistent environments slowed delivery.",
+    "solution": "Designed a Terraform-driven EKS platform with GitHub Actions CI/CD.",
+    "impact": "Reduced deployment time by 60% and improved system reliability.",
+    "services": ["EKS", "IAM", "ALB", "CloudWatch"],
+    "lastUpdated": "2026-01-12"
+  }
+]

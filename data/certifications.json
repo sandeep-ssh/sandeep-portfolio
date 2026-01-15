@@ -1,0 +1,65 @@
+[
+  {
+    "name": "AWS Certified Cloud Practitioner – Foundational",
+    "level": "Foundational",
+    "year": 2025,
+    "badge": "assets/images/aws-clf.png"
+  },
+  {
+    "name": "AWS Certified AI Practitioner – Foundational",
+    "level": "Foundational",
+    "year": 2025,
+    "badge": "assets/images/aws-aif.png"
+  },  {
+    "name": "AWS Certified Solutions Architect – Associate",
+    "level": "Associate",
+    "year": 2025,
+    "badge": "assets/images/aws-saa.png"
+  },
+  {
+    "name": "AWS Certified Developer – Associate",
+    "level": "Associate",
+    "year": 2025,
+    "badge": "assets/images/aws-dva.png"
+  },  {
+    "name": "AWS Certified SysOps Administrator – Associate",
+    "level": "Associate",
+    "year": 2025,
+    "badge": "assets/images/aws-sysops.png"
+  },  {
+    "name": "AWS Certified Machine Learning Engineer – Associate",
+    "level": "Associate",
+    "year": 2025,
+    "badge": "assets/images/aws-mla.png"
+  },  {
+    "name": "AWS Certified Data Engineer – Associate",
+    "level": "Associate",
+    "year": 2025,
+    "badge": "assets/images/aws-dea.png"
+  },  {
+    "name": "AWS Certified Solutions Architect – Professional",
+    "level": "Professional",
+    "year": 2025,
+    "badge": "assets/images/aws-sapro.png"
+  },  {
+    "name": "AWS Certified DevOps Engineer – Professional",
+    "level": "Professional",
+    "year": 2025,
+    "badge": "assets/images/aws-dopro.png"
+  },  {
+    "name": "AWS Certified Machine Learning – Specialty",
+    "level": "Specialty",
+    "year": 2025,
+    "badge": "assets/images/aws-mls.png"
+  },  {
+    "name": "AWS Certified Advanced Networking – Specialty",
+    "level": "Specialty",
+    "year": 2025,
+    "badge": "assets/images/aws-ans.png"
+  },  {
+    "name": "AWS Certified Security – Specialty",
+    "level": "Specialty",
+    "year": 2025,
+    "badge": "assets/images/aws-scs.png"
+  }
+]
