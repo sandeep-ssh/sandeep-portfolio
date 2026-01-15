@@ -20,12 +20,19 @@ jobs:
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::124355661659:role/GitHubActionsPortfolioRole
+          role-to-assume: arn:aws:iam::124355661659:role/Github-Portfolio-Deploy
           aws-region: us-east-1
 
       - name: Deploy site to S3
         run: |
-          aws s3 sync ./site s3://sandeep-hegde-portfolio --delete
+          aws s3 sync . s3://sandeep-hegde-portfolio \
+          --exclude ".git/*" \
+          --exclude ".github/*" \
+          --exclude "terraform/*" \
+          --exclude "README.md" \
+          --exclude "*.tf" \
+          --exclude "*.tfstate*" \
+          --delete
 
       - name: Invalidate CloudFront cache
         run: |
