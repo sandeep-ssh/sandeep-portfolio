@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   timeline.innerHTML = `<p class="loading">Loading certifications...</p>`;
 
-  fetch("data/certifications.json")
+fetch("data/certifications.json")
     .then(response => {
       if (!response.ok) {
         throw new Error("Failed to load certifications");
