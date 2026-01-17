@@ -33,8 +33,10 @@ jobs:
           --exclude "*.tf" \
           --exclude "*.tfstate*" \
           --delete
-          
+  
+
           - name: Invalidate CloudFront cache
+            continue-on-error: true
             run: |
             aws cloudfront create-invalidation \
             --distribution-id D281TO3E0M694X \
