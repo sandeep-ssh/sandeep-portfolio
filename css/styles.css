@@ -16,6 +16,46 @@
   --transition-fast: 0.2s ease;
 }
 
+#theme-toggle {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===============================
+   THEME VARIABLES
+   =============================== */
+
+:root {
+  --primary: #ff9900;
+  --secondary: #38bdf8;
+
+  --bg-main: #0f172a;
+  --bg-card: #020617;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --border-color: #1e293b;
+}
+
+[data-theme="light"] {
+  --primary: #ff9900;
+  --secondary: #0369a1;
+
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+
+  --border-color: #e2e8f0;
+}
+
 /* ================================
    Base Layout
 ================================ */
@@ -201,4 +241,78 @@ nav a.active {
   --color-text-main: #020617;
   --color-text-muted: #475569;
   --color-border: #e2e8f0;
+}
+/* ===============================
+   BASE LAYOUT
+   =============================== */
+
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+}
+
+.page-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+/* ===============================
+   PROJECTS GRID
+   =============================== */
+
+#projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.project-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #020617;
+}
+nav {
+  display: flex;
+  gap: 24px;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-main);
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--primary);
 }
