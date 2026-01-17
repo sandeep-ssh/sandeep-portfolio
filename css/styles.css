@@ -182,11 +182,6 @@ nav a.active {
 /* ==================================================
    CERTIFICATIONS TIMELINE
 ================================================== */
-.timeline-item img {
-  display: block;
-  max-width: 80px;
-  height: auto;
-}
 
 .timeline {
   position: relative;
@@ -214,7 +209,14 @@ nav a.active {
 
 .timeline-item img {
   width: 80px;
+  height: auto;
   margin-bottom: 12px;
+  display: block;
+}
+
+.timeline-item h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
 }
 
 .timeline-item span {
@@ -259,48 +261,4 @@ nav a.active {
     opacity: 1;
     transform: none;
   }
-}
-/* ===============================
-   CERTIFICATIONS TIMELINE
-   =============================== */
-
-.timeline {
-  position: relative;
-  margin-top: 48px;
-  padding-left: 32px;
-  border-left: 2px solid var(--border-color);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 48px;
-  padding-left: 24px;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -41px;
-  top: 8px;
-  width: 14px;
-  height: 14px;
-  background: var(--primary);
-  border-radius: 50%;
-}
-
-.timeline-item img {
-  width: 80px;
-  height: auto;
-  margin-bottom: 12px;
-  display: block;
-}
-
-.timeline-item h3 {
-  margin: 0 0 4px 0;
-  font-size: 1.05rem;
-}
-
-.timeline-item span {
-  font-size: 0.9rem;
-  color: var(--text-muted);
 }
