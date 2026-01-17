@@ -1,67 +1,73 @@
 /*!
-* Modernised for Cloud Portfolio
-* Based on Start Bootstrap Freelancer
-*/
+ * Portfolio Core Script
+ * Clean, framework-light, performance-first
+ */
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  /* ===============================
+     THEME TOGGLE (LIGHT / DARK)
+     =============================== */
+  const toggle = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    root.setAttribute("data-theme", savedTheme);
+  } else {
+    root.setAttribute("data-theme", "dark");
+  }
+
+  toggle?.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
 
   /* ===============================
-     NAVBAR SHRINK (MODERN STYLE)
+     NAVBAR SHRINK ON SCROLL
      =============================== */
   const navbar = document.getElementById("mainNav");
 
-  const navbarShrink = () => {
-    if (!navbar) return;
-
-    if (window.scrollY > 50) {
-      navbar.classList.add("navbar-shrink");
-    } else {
-      navbar.classList.remove("navbar-shrink");
-    }
-  };
-
-  navbarShrink();
-  document.addEventListener("scroll", navbarShrink);
-
-  /* ===============================
-     SMOOTH SCROLLING
-     =============================== */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-
-      if (targetId.length > 1 && document.querySelector(targetId)) {
-        e.preventDefault();
-        document.querySelector(targetId).scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    });
-  });
-
-  /* ===============================
-     BOOTSTRAP SCROLLSPY
-     =============================== */
   if (navbar) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#mainNav",
-      rootMargin: "0px 0px -30%"
-    });
+    const handleScroll = () => {
+      navbar.classList.toggle("navbar-shrink", window.scrollY > 40);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
   }
 
   /* ===============================
-     COLLAPSE MOBILE MENU ON CLICK
+     SMOOTH SCROLL (ANCHORS)
      =============================== */
-  const navbarToggler = document.querySelector(".navbar-toggler");
-  const navLinks = document.querySelectorAll("#navbarResponsive .nav-link");
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      const target = document.querySelector(anchor.getAttribute("href"));
+      if (!target) return;
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      if (window.getComputedStyle(navbarToggler).display !== "none") {
-        navbarToggler.click();
-      }
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     });
   });
 
+  /* ===============================
+     FADE-IN ON VIEWPORT (PERF)
+     =============================== */
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 });
